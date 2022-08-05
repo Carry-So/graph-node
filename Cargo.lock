@@ -2344,8 +2344,7 @@ dependencies = [
 [[package]]
 name = "impl-serde"
 version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4551f042f3438e64dbd6226b20527fc84a6e1fe65688b58746a2f53623f25f5c"
+source = "git+https://github.com/Carry-So/parity-common?branch=xdc#3c485bdf94ae2d72ee3a31f8d27b458ea37cfaf7"
 dependencies = [
  "serde",
 ]
