@@ -1423,8 +1423,27 @@ pub(crate) async fn blocks_with_triggers(
         triggers.with_context(|| format!("Failed to obtain triggers for block {}", to))?;
     let to_hash = to_hash.with_context(|| format!("Failed to infer hash for block {}", to))?;
 
+    // convert block numbers to hashes
+    let mut block_hashes2: Vec<H256> = vec![];
+    let block_numbers: Vec<BlockNumber> = triggers.iter().map(EthereumTrigger::block_number).collect();
+    for number in block_numbers {
+        let block_hash = adapter.block_hash_by_block_number(&logger, number)
+        .compat()
+        .await;
+        match block_hash {
+            Ok(Some(hash)) => block_hashes2.push(hash),
+            Ok(None) => bail!("Not found blok {} on chain", number),
+            Err(error) => bail!("Fail to get block {} hash: {}", number, error),
+        }
+    }
+
     let mut block_hashes: HashSet<H256> =
-        triggers.iter().map(EthereumTrigger::block_hash).collect();
+        triggers.iter().map(EthereumTrigger::block_hash2).filter(|hash| !hash.is_zero()).collect();
+
+    for hash in block_hashes2 {
+        block_hashes.insert(hash);
+    }
+
     let mut triggers_by_block: HashMap<BlockNumber, Vec<EthereumTrigger>> =
         triggers.into_iter().fold(HashMap::new(), |mut map, t| {
             map.entry(t.block_number()).or_default().push(t);
