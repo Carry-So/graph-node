@@ -283,6 +283,14 @@ impl EthereumTrigger {
         }
     }
 
+    pub fn block_hash2(&self) -> H256 {
+        match self {
+            EthereumTrigger::Block(block_ptr, _) => block_ptr.hash_as_h256(),
+            EthereumTrigger::Call(call) => call.block_hash,
+            EthereumTrigger::Log(_, _) => H256::zero(),
+        }
+    }
+
     /// `None` means the trigger matches any address.
     pub fn address(&self) -> Option<&Address> {
         match self {
