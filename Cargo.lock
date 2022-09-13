@@ -1941,11 +1941,12 @@ dependencies = [
 
 [[package]]
 name = "graphql-tools"
-version = "0.0.20"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a792425b9e2ed860d0c1393dab3cb56af6d96558b64b469b99d1e58e43c16b8a"
+checksum = "1a71c3ac880d8383537914ea7b45d99c6946e15976faa33a42b6c339ef4a2fb8"
 dependencies = [
  "graphql-parser",
+ "lazy_static",
  "serde",
  "serde_json",
 ]
@@ -2227,8 +2228,7 @@ dependencies = [
 [[package]]
 name = "impl-serde"
 version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4551f042f3438e64dbd6226b20527fc84a6e1fe65688b58746a2f53623f25f5c"
+source = "git+https://github.com/gzliudan/parity-common?branch=xdc#4da82b3d9b3609df7f55867220caca46db534c44"
 dependencies = [
  "serde",
 ]
