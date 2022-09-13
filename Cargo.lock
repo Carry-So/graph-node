@@ -501,9 +501,9 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "3.2.17"
+version = "3.2.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "29e724a68d9319343bb3328c9cc2dfde263f4b3142ee1059a9980580171c954b"
+checksum = "1ed5341b2301a26ab80be5cbdced622e80ed808483c52e45e3310a877d3b37d7"
 dependencies = [
  "atty",
  "bitflags",
@@ -1704,7 +1704,7 @@ dependencies = [
 name = "graph-node"
 version = "0.27.0"
 dependencies = [
- "clap 3.2.17",
+ "clap 3.2.21",
  "crossbeam-channel",
  "diesel",
  "env_logger 0.9.0",
@@ -1870,7 +1870,7 @@ dependencies = [
  "anyhow",
  "async-trait",
  "blake3 1.3.1",
- "clap 3.2.17",
+ "clap 3.2.21",
  "derive_more",
  "diesel",
  "diesel-derive-enum",
@@ -2227,8 +2227,7 @@ dependencies = [
 [[package]]
 name = "impl-serde"
 version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4551f042f3438e64dbd6226b20527fc84a6e1fe65688b58746a2f53623f25f5c"
+source = "git+https://github.com/gzliudan/parity-common?branch=xdc#4da82b3d9b3609df7f55867220caca46db534c44"
 dependencies = [
  "serde",
 ]
