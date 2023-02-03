@@ -73,9 +73,11 @@ COPY docker/bin/* /usr/local/bin/
 FROM debian:bullseye-slim as graph-node
 ENV RUST_LOG ""
 ENV GRAPH_LOG ""
+ENV GRAPH_LOG_TIME_FORMAT ""
 ENV EARLY_LOG_CHUNK_SIZE ""
 ENV ETHEREUM_RPC_PARALLEL_REQUESTS ""
 ENV ETHEREUM_BLOCK_CHUNK_SIZE ""
+ENV ETHEREUM_REORG_THRESHOLD ""
 
 ENV postgres_host ""
 ENV postgres_user ""
